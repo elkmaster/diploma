@@ -2,7 +2,7 @@
  * Created by vlad on 07.06.15.
  */
 define(function () {
-    var matrix=[];
+    var matrix;
     var visited = [];
     var saved = [];
     var id = 0;
