@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <div class="row images">
+              <div class="col-sm-6">
+                  <canvas id='ctx' ></canvas>
+                  <div id="pos">Mouse position: n/a</div>
+              </div>
+              <div class="col-sm-6">
+
+                  <div class="form-group">
+                          <div class="form-group">
+                              <label for="InputFile">File input</label>
+                              <input type="file" id="InputFile">
+                              <p class="help-block">Example block-level help text here.</p>
+                          </div>
+
+                          <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+
+                  <table id="results" class="table table-striped">
+                      <thead><tr>
+                          <th>#</th>
+                          <th>length</th>
+                          <th>square</th>
+                      </tr></thead>
+                      <tbody>
+                      </tbody>
+                 </table>
+
+              </div>
+
+        </div>
+        <div class="row">
+            <div  class="col-md-12">
+
+                <h2>Results</h2>
+                <a download="somedata.xls" href="#" onclick="return ExcellentExport.excel(this, 'viz', 'Sheet Name Here');">Export to Excel</a>
+
+                <table id="viz" class="table table-striped">
+                  <tr>
+                        <th>#</th>
+                        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+                        <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+                        <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+                        <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th>
+                        <th>21</th><th>22</th><th>23</th><th>24</th><th>25</th>
+                    </tr>
+
+
+
+                </table>
+
+            </div>
+        </div>
+    </div> <!-- /container -->
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/glfx.js"></script>
+        <script type="text/javascript" src="js/vendor/excellentexport.min.js"></script>
+        <script src="js/vendor/require.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
