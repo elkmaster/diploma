@@ -23,7 +23,7 @@ define(['edge','tools','clasterize'],function (edge,tools, clasterize) {
                 z++;
             }
         }
-        var avg = sum / z + 35;
+        var avg = sum / z + 36;
 
         console.log(avg);
         return avg;
