@@ -12,7 +12,7 @@ require(['foo'], function(foo) {
     $(document).ready(function () {
 
 
-        foo.r('test.jpg');
+        //foo.r('test.jpg');
 
         var c =  document.getElementById( 'ctx' );
         c.addEventListener('mousemove', function(evt) {
