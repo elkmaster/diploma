@@ -8,11 +8,11 @@ requirejs.config({
 
 var ctx;
 
-require(['foo'], function(foo) {
+require(['main'], function(main) {
     $(document).ready(function () {
 
 
-        //foo.r('test.jpg');
+        //main.r('test.jpg');
 
         var c =  document.getElementById( 'ctx' );
         c.addEventListener('mousemove', function(evt) {
@@ -42,7 +42,7 @@ require(['foo'], function(foo) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                foo.r(e.target.result);
+                main.r(e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);

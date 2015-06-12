@@ -57,25 +57,18 @@ define(function () {
     function checkEdge(x,y){
         var nei =0;
 
-        if(matrix[y][x+1] == 0) {
-            nei++;
-        } if(matrix[y+1][x+1] == 0){
-            nei++;
-        } if(matrix[y+1][x] == 0){
-            nei++;
-        } if(matrix[y+1][x-1] == 0){
-            nei++;
-        } if(matrix[y][x-1] == 0){
-            nei++;
-        } if(matrix[y-1][x-1] == 0){
-            nei++;
-        } if(matrix[y-1][x] == 0){
-            nei++;
-        }if(matrix[y-1][x+1] == 0){
-            nei++;
-        }
+        //if(x>1 && y>1 && x<matrix[0].length && y<matrix.length ){
+            if(matrix[y][x+1] == 0) {nei++;}
+            if(matrix[y+1][x+1] == 0){nei++;}
+            if(matrix[y+1][x] == 0){nei++;}
+            if(matrix[y+1][x-1] == 0){nei++;}
+            if(matrix[y][x-1] == 0){nei++;}
+            if(matrix[y-1][x-1] == 0){nei++;}
+            if(matrix[y-1][x] == 0){nei++;}
+            if(matrix[y-1][x+1] == 0){nei++;}
+        //}
 
-        if (nei>1){//console.log('nei = '+nei+'; x= '+x+'; y = '+y+' true');
+        if(nei>1){//console.log('nei = '+nei+'; x= '+x+'; y = '+y+' true');
             return true;
         } else{//console.log('nei = '+nei+'; x= '+x+'; y = '+y+' false');
             return false

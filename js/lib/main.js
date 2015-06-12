@@ -23,7 +23,7 @@ define(['edge','tools','clasterize'],function (edge,tools, clasterize) {
                 z++;
             }
         }
-        var avg = sum / z + 36;
+        var avg = sum / z + 40;
 
         console.log(avg);
         return avg;
@@ -59,20 +59,23 @@ define(['edge','tools','clasterize'],function (edge,tools, clasterize) {
         }
         return matrix;
     }
-
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: Math.floor(evt.clientX - rect.left),
+            y: Math.floor(evt.clientY - rect.top)
+        };
+    }
 
     return {
         r : function (src) {
 
-        $('.res').remove();
         var img = new Image();
         img.src = src;
 
         $("#ctx").css('background-image', 'url(' + src + ')');
 
         img.onload = function () {
-
-
 
             var w = img.width, h = img.height;
             ctx  = document.getElementById('ctx').getContext('2d');
@@ -114,8 +117,6 @@ define(['edge','tools','clasterize'],function (edge,tools, clasterize) {
             image.src = canvas.toDataURL();
             ctx.drawImage(image, 0, 0, w, h);
 
-
-
             var imgmask = ctx.getImageData(0, 0, w, h);
 
             //creating semiblur mask on image
@@ -133,15 +134,47 @@ define(['edge','tools','clasterize'],function (edge,tools, clasterize) {
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-
-
-
             tools.drawGrid(ctx,w,h);
 
             var matrix = toMatrix(imgmask);
             var cords = edge.get(matrix);
+
+
+
+
+            $('.res').remove();
+
+
+
             show_res(cords);
             clasterize.run(matrix, sourceimg, cords);
+
+            var c =  document.getElementById( 'ctx' );
+            c.addEventListener('click', function(evt) {
+                var mousePos = getMousePos(c, evt);
+                var id, j;
+
+                for(var i = 0; i<cords.length; i++){
+                    if(cords[i].inner.indexOf(mousePos.x+'|'+mousePos.y) != -1 ){
+                        var id = prompt('id:'+ cords[i].id);
+                        j=i;
+                        break;
+                    }
+                }
+                console.log(id);
+                if (id!='' && id!=null){
+                    cords[j].id = id;
+                    $('.res').remove();
+                    show_res(cords);
+                    clasterize.clToTable(cords);
+                }
+
+
+
+
+
+            }, false);
+
 
 
 

@@ -4,27 +4,7 @@
 define(function () {
     var m, data, res=[];
 
-    function clToTable(arr){
-        var t = $('#viz');
-        for(var x = 0; x<arr.length; x++) {
-            if(arr[x].clasters.length>0){
-                t.append('<tr class="res"><th colspan="25"><h3 class="text-center">id = '+arr[x].id+'</h3><th></tr>');
 
-                for (var i = 0; i < arr[x].clasters.length; i++) {
-                    var s = '<tr class="res"><td>' + i + '</td>';
-                    for (var j = 0; j < 25; j++) {
-                        s += '<td>' + arr[x].clasters[i][j].val + '</td>';
-                    }
-                    t.append(s + '</tr>');
-                }
-            }
-
-        }
-
-
-
-        t.css('display','block');
-    }
 
     function saveClaster(x,y){
         var cl = [],w = m[0].length;
@@ -75,9 +55,27 @@ define(function () {
             });
 
             console.log(cords);
-            clToTable(cords);
+            this.clToTable(cords);
 
             return cords;
+        },
+        clToTable: function(arr){
+
+            var t = $('#viz');
+            for(var x = 0; x<arr.length; x++) {
+                if(arr[x].clasters.length>0){
+                    t.append('<tr class="res"><th colspan="25"><h3 class="text-center">id = '+arr[x].id+'</h3><th></tr>');
+                    for (var i = 0; i < arr[x].clasters.length; i++) {
+                        var s = '<tr class="res"><td>' + i + '</td>';
+                        for (var j = 0; j < 25; j++) {
+                            s += '<td>' + arr[x].clasters[i][j].val + '</td>';
+                        }
+                        t.append(s + '</tr>');
+                    }
+                }
+
+            }
+            t.css('display','block');
         }
     };
 });
