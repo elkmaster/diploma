@@ -2,7 +2,7 @@
  * Created by vlad on 07.06.15.
  */
 define(function () {
-    var matrix;
+
     var visited = [];
     var saved = [];
     var id = 0;
@@ -57,16 +57,19 @@ define(function () {
     function checkEdge(x,y){
         var nei =0;
 
-        //if(x>1 && y>1 && x<matrix[0].length && y<matrix.length ){
+
             if(matrix[y][x+1] == 0) {nei++;}
             if(matrix[y+1][x+1] == 0){nei++;}
             if(matrix[y+1][x] == 0){nei++;}
             if(matrix[y+1][x-1] == 0){nei++;}
             if(matrix[y][x-1] == 0){nei++;}
+
+        if(y>=1){
             if(matrix[y-1][x-1] == 0){nei++;}
             if(matrix[y-1][x] == 0){nei++;}
             if(matrix[y-1][x+1] == 0){nei++;}
-        //}
+        }
+
 
         if(nei>1){//console.log('nei = '+nei+'; x= '+x+'; y = '+y+' true');
             return true;
@@ -103,15 +106,15 @@ define(function () {
             result.x = x-1;
             result.y = y;
             return result;
-        }else if(ch(x-1,y-1)){
+        }else if(ch(x-1,y-1) && y>1){
             result.x = x-1;
             result.y = y-1;
             return result;}
-        else if(ch(x,y-1)){
+        else if(ch(x,y-1) && y>1){
             result.x = x;
             result.y = y-1;
             return result;
-        }else if(ch(x+1,y-1)){
+        }else if(ch(x+1,y-1) && y>1){
             result.x = x+1;
             result.y = y-1;
             return result;

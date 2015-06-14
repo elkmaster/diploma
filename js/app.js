@@ -10,10 +10,7 @@ var ctx;
 
 require(['main'], function(main) {
     $(document).ready(function () {
-
-
-        //main.r('test.jpg');
-
+       //main.r('test.jpg');
         var c =  document.getElementById( 'ctx' );
         c.addEventListener('mousemove', function(evt) {
             var mousePos = getMousePos(c, evt);
@@ -25,8 +22,6 @@ require(['main'], function(main) {
         });
 
     });
-
-
 
 
     function getMousePos(canvas, evt) {

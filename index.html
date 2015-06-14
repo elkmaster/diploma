@@ -24,21 +24,24 @@
     <div class="container">
         <div class="row images">
               <div class="col-sm-6">
-                  <canvas id='ctx' ></canvas>
-                  <div id="pos">Mouse position: n/a</div>
+                  <center>
+                      <canvas id='ctx' ></canvas>
+                      <div id="pos">Mouse position: n/a</div>
+                  </center>
               </div>
-              <div class="col-sm-6">
-
+              <div class="col-sm-3">
                   <div class="form-group">
                           <div class="form-group">
                               <label for="InputFile">File input</label>
-                              <input type="file" id="InputFile">
+                              <span class="btn btn-default btn-file">
+                                  Upload
+                                 <input type="file" id="InputFile">
+                              </span>
                               <p class="help-block">Upload x-ray here.</p>
                           </div>
 
 
                   </div>
-
                   <table id="results" class="table table-striped">
                       <thead><tr>
                           <th>#</th>
@@ -48,9 +51,15 @@
                       <tbody>
                       </tbody>
                  </table>
-
               </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="csize">Enter claster size</label>
+                    <input type="number" class="form-control" id="csize" placeholder="claster size" min=1 max=100 value="5">
+                </div>
 
+
+            </div>
         </div>
         <div class="row">
             <div  class="col-md-12">
@@ -59,17 +68,7 @@
                 <a download="somedata.xls" href="#" onclick="return ExcellentExport.excel(this, 'viz', 'Sheet Name Here');">Export to Excel</a>
 
                 <table id="viz" class="table table-striped">
-                  <tr>
-                        <th>#</th>
-                        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
-                        <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
-                        <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
-                        <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th>
-                        <th>21</th><th>22</th><th>23</th><th>24</th><th>25</th>
-                    </tr>
-
-
-
+                  <tr id="theader"></tr>
                 </table>
 
             </div>
