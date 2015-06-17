@@ -1,11 +1,13 @@
 /**
  * Created by vlad on 07.06.15.
  */
+var visited = [];
+var saved = [];
+var id = 0;
+
 define(function () {
 
-    var visited = [];
-    var saved = [];
-    var id = 0;
+
 
     function getPath(sy,sx){
         var x , y, i=0;
@@ -150,6 +152,12 @@ define(function () {
 
     return {
         get :function (m) {
+
+            visited = [];
+            saved = [];
+            id = 0;
+
+
             matrix = m;
             var h = m.length, w = m[0].length;
             var last = 0;
@@ -178,6 +186,32 @@ define(function () {
             }
             return r;
             //alert(s);
+
+        },
+        manCords: function(c){
+            var r = [];
+            var e = [], inner=[];
+
+            console.log(1);
+            for (var i = c.y1; i<= c.y2; i++){
+                for (var j = c.x1; j<= c.x2; j++){
+                    inner.push(j+'|'+i);
+
+                }
+            }
+            console.log(2);
+
+
+            var c ={
+                id : 'manual',
+                edge : e ,
+                inner : inner,
+                clasters :[]
+            };
+
+            r.push(c);
+
+            return r;
 
         }
     };

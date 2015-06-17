@@ -20,7 +20,9 @@ require(['main'], function(main) {
         $("#InputFile").change(function(){
             readURL(this);
         });
-
+        $("#manInputFile").change(function(){
+            readURL2(this);
+        });
     });
 
 
@@ -32,12 +34,22 @@ require(['main'], function(main) {
         };
     }
     function readURL(input) {
-
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
                 main.r(e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                main.m(e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);

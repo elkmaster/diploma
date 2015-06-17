@@ -5,7 +5,17 @@
    ========================================================================== */
 #results{
     display: none;
+}
 
+#ctx{
+    background: url(upload.png) center center no-repeat;
+    background-size: contain;
+
+}
+body{padding-top: 0;}
+
+.main{
+    margin-top: 50px ;
 }
 #viz{
     display: none;

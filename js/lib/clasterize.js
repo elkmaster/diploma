@@ -32,10 +32,17 @@ define(function () {
             data = img;
             var rs = [];
 
+
+
             var h = matrix.length, w = matrix[0].length;
+
+            console.log(h,w);
 
             for (var y = 0; y < h; y+=c_size) {
                 for (var x = 0; x < w; x+=c_size) {
+
+                    console.log(matrix[y][x]);
+
                     if(matrix[y][x]==1){
                         var c = saveClaster(x,y);
                             //console.log (c);
@@ -114,5 +121,6 @@ define(function () {
             context.strokeStyle = 'rgba(0,0,0,0.2)';
             context.stroke();
         }
+
     };
 });

@@ -73,8 +73,14 @@ define(function () {
                 ctx.strokeStyle = '#220000';
                 ctx.stroke();
             }
-        }
+        },
+        MreDrawCords :function(ctx,c){
+            ctx.beginPath();
+            ctx.rect(c.x1, c.y1, c.x2-c.x1,c.y2-c.y1);
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
 
+        }
 
     };
 });
